@@ -37,6 +37,11 @@ func ReplaceFilter(name string, fn FilterFunction) {
 	filters[name] = fn
 }
 
+// RegisterOrReplaceFilter replace the existing filter or register a new filter.
+func RegisterOrReplaceFilter(name string, fn FilterFunction) {
+	filters[name] = fn
+}
+
 // Like ApplyFilter, but panics on an error
 func MustApplyFilter(name string, value *Value, param *Value) *Value {
 	val, err := ApplyFilter(name, value, param)
